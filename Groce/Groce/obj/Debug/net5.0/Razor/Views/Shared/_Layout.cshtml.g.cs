@@ -311,3 +311,4 @@ Write(await RenderSectionAsync("Scripts", required: false));
     }
 }
 #pragma warning restore 1591
+>>>>>>> main
