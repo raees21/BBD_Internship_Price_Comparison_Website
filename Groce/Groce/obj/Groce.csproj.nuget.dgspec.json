@@ -1,6 +1,22 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
+    "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
+        "projectName": "Groce",
+        "projectPath": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
+        "packagesPath": "C:\\Users\\bbdnet2444\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\bbdnet2444\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
     "C:\\Users\\bbdnet2434\\Documents\\Visual Studio 2019\\Groce\\Groce\\Groce\\Groce.csproj": {}
   },
   "projects": {
@@ -15,6 +31,7 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\bbdnet2434\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> main
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +61,19 @@
               "target": "Package",
               "version": "[5.0.5, )"
             },
+<<<<<<< HEAD
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.2, )"
+=======
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -63,6 +93,7 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[5.0.2, )"
+>>>>>>> main
             }
           },
           "imports": [
