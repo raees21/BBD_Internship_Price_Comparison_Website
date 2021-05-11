@@ -6,14 +6,10 @@ using System.Threading.Tasks;
 
 namespace Groce.Models
 {
-    public class Groceries
+    public class Stores
     {
-        [Key]
-        public int GroceryID { get; set; }
-        public string GroceryName { get; set; }
-        public string GroceryDescription { get; set; }
-        public double GroceryPrice { get; set; }
         public string StoreName { get; set; }
+        [Key]
         public int StoreID { get; set; }
     }
 }

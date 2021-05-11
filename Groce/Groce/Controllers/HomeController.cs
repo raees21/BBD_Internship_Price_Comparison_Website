@@ -29,6 +29,7 @@ namespace Groce.Controllers
         public IActionResult Index()
         {
             ViewBag.Groceries = _groceryContext.Groceries.Find(2).GroceryName;
+            
             return View();
         }
 
