@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Groce",
+    "\\Groce\\Groce",
+    "\\Groce\\Groce\\Models",
+    "\\Groce\\Groce\\Models\\Groceries",
+    "\\Groce\\Groce\\Views",
+    "\\Groce\\Groce\\Views\\Groceries"
   ],
+  "SelectedNode": "\\Groce\\Groce\\Views\\Groceries\\Create.cshtml",
   "PreviewInSolutionExplorer": false
 }
