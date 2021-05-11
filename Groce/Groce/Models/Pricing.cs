@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Groce.Models
 {
-    public class Pricings
+    public class Pricing
     {
         public double GroceryPrice { get; set; }
         public int StoreID { get; set; }
