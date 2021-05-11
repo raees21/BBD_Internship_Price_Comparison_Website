@@ -24,8 +24,8 @@ ADD CONSTRAINT [PK_Stores] PRIMARY KEY CLUSTERED ([StoreID] ASC);
 GO
 
 CREATE TABLE [dbo].[Pricing](
-    [GroceryID] [int] IDENTITY(1,1) NOT NULL,
-    [StoreID] [varchar](120) NULL,
+    [GroceryID] [int] NOT NULL,
+    [StoreID] [int] NULL,
     [GroceryPrice] [decimal] NULL,
 );
 GO
