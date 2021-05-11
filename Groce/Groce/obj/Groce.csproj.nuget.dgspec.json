@@ -2,22 +2,30 @@
   "format": 1,
   "restore": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {}
 =======
 <<<<<<< HEAD
     "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {}
+=======
+    "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {}
+>>>>>>> parent of 76c0599 (Sql link to Backend)
   },
   "projects": {
-    "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {
+    "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
+        "projectUniqueName": "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
         "projectName": "Groce",
-        "projectPath": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
-        "packagesPath": "C:\\Users\\bbdnet2444\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bbdnet2444\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\obj\\",
+        "projectPath": "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
+        "packagesPath": "C:\\Users\\bbdnet2465\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
+<<<<<<< HEAD
           "C:\\Users\\bbdnet2444\\AppData\\Roaming\\NuGet\\NuGet.Config",
 =======
     "C:\\Users\\bbdnet2434\\Documents\\Visual Studio 2019\\Groce\\Groce\\Groce\\Groce.csproj": {}
@@ -41,6 +49,11 @@
 >>>>>>> main
 >>>>>>> 288a5cb913ef365ee1bb90d5011da220d30c9dec
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+          "C:\\Users\\bbdnet2465\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> parent of 76c0599 (Sql link to Backend)
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -64,6 +77,7 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+<<<<<<< HEAD
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -104,6 +118,8 @@
 >>>>>>> main
             }
           },
+=======
+>>>>>>> parent of 76c0599 (Sql link to Backend)
           "imports": [
             "net461",
             "net462",

@@ -1,6 +1,7 @@
 {
   "version": 2,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "dgSpecHash": "HxRqA3yhp9lSNLy9QVN3vKHUIk/ixsINelHDwafUbfVBK3mkTl2YVu3tFDNUQ9i55EYha6d1cOY1FUbQuqDTTw==",
 =======
 <<<<<<< HEAD
@@ -366,5 +367,11 @@
 >>>>>>> main
 >>>>>>> 288a5cb913ef365ee1bb90d5011da220d30c9dec
   ],
+=======
+  "dgSpecHash": "RVMbE13LLG2UE/Zs7cbWQMHTNUjcmCzxl1Wy2ypPuagijpXv1cubuGt6luFSMMPY/eCg++8u1NP/V2TY0HdHUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\bbdnet2465\\Documents\\BBD_Team2_CSharp\\Groce\\Groce\\Groce.csproj",
+  "expectedPackageFiles": [],
+>>>>>>> parent of 76c0599 (Sql link to Backend)
   "logs": []
 }
