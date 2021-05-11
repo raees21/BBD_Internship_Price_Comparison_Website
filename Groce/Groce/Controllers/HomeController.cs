@@ -11,15 +11,24 @@ namespace Groce.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly GroceryContext _groceryContext;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public HomeController(ILogger<HomeController> logger, GroceryContext groceryContext)
         {
+            _groceryContext = groceryContext;
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            ViewBag.Groceries = _groceryContext.Groceries.Find(2).GroceryName;
             return View();
         }
 
