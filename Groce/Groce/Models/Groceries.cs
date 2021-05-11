@@ -11,9 +11,8 @@ namespace Groce.Models
         [Key]
         public int GroceryID { get; set; }
         public string GroceryName { get; set; }
+        public string GroceryType { get; set; }
         public string GroceryDescription { get; set; }
-        public double GroceryPrice { get; set; }
-        public string StoreName { get; set; }
-        public int StoreID { get; set; }
+
     }
 }
