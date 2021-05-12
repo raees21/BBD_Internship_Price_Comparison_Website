@@ -42,7 +42,7 @@ namespace Groce.Controllers
         [HttpGet("list/{name}")]
         public async Task<ActionResult<IEnumerable<Groceries>>> GetGroceriesListFind(string name)
         {
-            var groceries = await _context.Groceries.Where(x => x.GroceryName == name).ToListAsync();
+            var groceries = await _context.Groceries.Where(x => x.GroceryName.ToLower() == name.ToLower()).ToListAsync();
 
             if (groceries == null)
             {
@@ -50,6 +50,56 @@ namespace Groce.Controllers
             }
 
             return groceries;
+        }
+
+        // GET: api/Groceries/pricesearch
+        [HttpGet("pricesearch/{name}")]
+        public async Task<ActionResult<GroceryType>> GetGroceriesByName(string name)
+        {
+            var item = await _context.Groceries.Where(x => x.GroceryName.ToLower() == name.ToLower()).ToListAsync();
+            if (item.Count == 0)
+            {
+                return NotFound();  
+            }
+            int id = item[0].GroceryID;
+            var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
+
+            GroceryType groce = new GroceryType();
+            groce.grocery = item[0];
+            groce.pricings = list;
+
+            Console.WriteLine(groce);
+
+            if (groce == null)
+            {
+                return NotFound();
+            }
+
+            return groce;
+        }
+
+        // GET: api/Groceries/pricesearcheapest
+        [HttpGet("pricesearchcheapest/{name}")]
+        public async Task<ActionResult<GroceryType>> GetGroceriesByNameCheap(string name)
+        {
+            var item = await _context.Groceries.Where(x => x.GroceryName.ToLower() == name.ToLower()).ToListAsync();
+            if (item.Count == 0)
+            {
+                return NotFound();
+            }
+            int id = item[0].GroceryID;
+            var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
+
+            GroceryType groce = new GroceryType();
+            groce.grocery = item[0];
+            groce.pricings = (IEnumerable<Pricing>)list.OrderByDescending(i => i.GroceryPrice).First();
+
+            if (groce == null)
+            {
+                return NotFound();
+            }
+
+            return groce;
         }
 
         // GET: api/Groceries/5
@@ -64,6 +114,47 @@ namespace Groce.Controllers
             }
 
             return groceries;
+        }
+
+        // GET: api/Groceries/full/5
+        [HttpGet("full/{id}")]
+        public async Task<ActionResult<GroceryType>> GetGroceriesFullPricing(int id)
+        {
+            var groceries = await _context.Groceries.FindAsync(id);
+            var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
+
+            GroceryType groce = new GroceryType();
+            groce.grocery = groceries;
+            groce.pricings = list;
+
+            if (groce == null)
+            {
+                return NotFound();
+            }
+
+            return groce;
+        }
+
+        // GET: api/Groceries/price/5
+        [HttpGet("price/{id}")]
+        public async Task<ActionResult<IEnumerable<Pricing>>> GetPricings(int id)
+        {
+            var pricings = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
+
+            if (pricings == null)
+            {
+                return NotFound();
+            }
+
+            return pricings;
+            // var groceries = await _context.Groceries.FindAsync(id);
+
+            // if (groceries == null)
+            //  {
+            //     return NotFound();
+            //  }
+
+            // return groceries;
         }
 
         // PUT: api/Groceries/5

@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Groce.Controllers;
+using System.Net;
 
 namespace Groce.Controllers
 {
@@ -14,7 +16,6 @@ namespace Groce.Controllers
 
         private readonly GroceryContext _groceryContext;
         private readonly ILogger<HomeController> _logger;
-
         //public HomeController(ILogger<HomeController> logger)
         //{
         //    _logger = logger;
@@ -26,10 +27,23 @@ namespace Groce.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.Groceries = _groceryContext.Groceries.Find(2).GroceryName;
-            
+            //GroceriesController gro = new GroceriesController
+            //GroceriesController groceriesController = new GroceriesController().GetGroceriesByName("eggs");
+            try
+            {
+                WebClient wc = new WebClient();
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                var somestring = wc.DownloadString("https://localhost:5001/api/groceries");
+                ViewBag.Groceries = somestring;
+                return View();
+            }
+            catch (WebException we)
+            {
+                // add some kind of error processing
+            }
+
             return View();
         }
 
