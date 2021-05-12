@@ -15,5 +15,7 @@ namespace Groce.Models {
         }
 
         public DbSet<Groce.Models.Groceries> Groceries { get; set; }
+        public DbSet<Groce.Models.Stores> Stores { get; set; }
+        public DbSet<Groce.Models.Pricing> Pricing { get; set; }
     }
 }

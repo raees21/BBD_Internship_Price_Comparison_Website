@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Models.Functions;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Groce.Controllers
 {
@@ -28,7 +30,16 @@ namespace Groce.Controllers
 
         public IActionResult Index()
         {
-            ViewBag.Groceries = _groceryContext.Groceries.Find(1).GroceryName;
+
+            Functions functions = new Functions();
+            var groceries = functions.GroceriesList(_groceryContext);
+            //ViewBag.Groceries = _groceryContext.Pricing.Find(1).GroceryPrice.ToString();
+            Console.WriteLine($"Juast... {groceries.Count()}");
+            var search = functions.Search(_groceryContext);
+            ViewBag.Groceries = search[2];
+            //var search = functions.Search(_groceryContext);
+            //Viewbag.Groceries = new SelectList(search);
+
 
             //List<string> Groceries = new List<string>();
 
