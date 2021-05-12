@@ -56,8 +56,16 @@ namespace Models.Functions
             
 
         }
-
-
+        
+        public GroceryType Minimum(GroceryContext _groceryContext)
+        {
+            GroceryType groceItem = new GroceryType();
+            for (int i = 1; i < 14; i++)
+            {
+                _groceryContext.Groceries.Find(i).GroceryID.ToString();
+            }
+            return groceItem;
+        }
 
 
     }
