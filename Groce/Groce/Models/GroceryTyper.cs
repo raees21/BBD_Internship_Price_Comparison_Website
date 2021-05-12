@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Groce.Models
 {
-    public class GroceryType
+    public class GroceryTyper
     {
         public Groceries grocery { get; set; }
 

@@ -54,7 +54,7 @@ namespace Groce.Controllers
 
         // GET: api/Groceries/pricesearch
         [HttpGet("pricesearch/{name}")]
-        public async Task<ActionResult<GroceryType>> GetGroceriesByName(string name)
+        public async Task<ActionResult<GroceryTyper>> GetGroceriesByName(string name)
         {
             var item = await _context.Groceries.Where(x => x.GroceryName.ToLower() == name.ToLower()).ToListAsync();
             if (item.Count == 0)
@@ -64,7 +64,7 @@ namespace Groce.Controllers
             int id = item[0].GroceryID;
             var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
 
-            GroceryType groce = new GroceryType();
+            GroceryTyper groce = new GroceryTyper();
             groce.grocery = item[0];
             groce.pricings = list;
 
@@ -80,7 +80,7 @@ namespace Groce.Controllers
 
         // GET: api/Groceries/pricesearcheapest
         [HttpGet("pricesearchcheapest/{name}")]
-        public async Task<ActionResult<GroceryType>> GetGroceriesByNameCheap(string name)
+        public async Task<ActionResult<GroceryTyper>> GetGroceriesByNameCheap(string name)
         {
             var item = await _context.Groceries.Where(x => x.GroceryName.ToLower() == name.ToLower()).ToListAsync();
             if (item.Count == 0)
@@ -90,7 +90,7 @@ namespace Groce.Controllers
             int id = item[0].GroceryID;
             var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
 
-            GroceryType groce = new GroceryType();
+            GroceryTyper groce = new GroceryTyper();
             groce.grocery = item[0];
             groce.pricings = (IEnumerable<Pricing>)list.OrderByDescending(i => i.GroceryPrice).First();
 
@@ -118,12 +118,12 @@ namespace Groce.Controllers
 
         // GET: api/Groceries/full/5
         [HttpGet("full/{id}")]
-        public async Task<ActionResult<GroceryType>> GetGroceriesFullPricing(int id)
+        public async Task<ActionResult<GroceryTyper>> GetGroceriesFullPricing(int id)
         {
             var groceries = await _context.Groceries.FindAsync(id);
             var list = await _context.Pricing.Where(x => x.GroceryID == id).ToListAsync();
 
-            GroceryType groce = new GroceryType();
+            GroceryTyper groce = new GroceryTyper();
             groce.grocery = groceries;
             groce.pricings = list;
 
