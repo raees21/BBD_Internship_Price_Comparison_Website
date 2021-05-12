@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 
-namespace Groce.Models { 
+namespace Groce.Models
+{
     public class GroceryContext : DbContext
     {
         public GroceryContext(
@@ -15,5 +16,7 @@ namespace Groce.Models {
         }
 
         public DbSet<Groce.Models.Groceries> Groceries { get; set; }
+        public DbSet<Groce.Models.Stores> Stores { get; set; }
+        public DbSet<Groce.Models.Pricing> Pricing { get; set; }
     }
 }
