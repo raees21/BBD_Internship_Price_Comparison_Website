@@ -2,9 +2,119 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>@ViewBag.Groceries
-        </p>
-</div>
+
+<!-- ======= Intro Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Welcome to <span>Groce</span></h1>
+                <h2>Your new favourite shopping helper!</h2>
+
+                <div class="btns">
+                    <a href="#search" class="btn-menu animated fadeInUp scrollto" style="text-decoration: none;">Search</a>
+                    <a href="#shopping-list" class="btn-book animated fadeInUp scrollto" style="text-decoration: none;">Shopping List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Intro -->
+<!-- ======= Shopping List Section ======= -->
+<section id="shopping-list" class="book-a-table list-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2 style="color: #cda45e">Grocery</h2>
+            <p>Shopping List</p>
+        </div>
+        <div class="table-list">
+            <table style="width:100%; background-color: white; opacity: 0.6;">
+                <tr class="table-head">
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+
+                <tr>
+                    <td style="padding-left: 5px">
+                        <input type="checkbox" class="custom-control-input" id="check1" style="padding-right: 5px" />
+                        Cupcakes
+                    </td>
+                    <td>R50.00     Woolies</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- shopping list -->
+
+    </div>
+</section><!-- End Shopping List Section -->
+<!-- ======= Search Section ======= -->
+<section id="search" class="menu section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Search</h2>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <input type="search" name="name" class="form-control" id="name" placeholder="Search..." data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+        </div>
+        <!--
+        Create a dropdown with product details and pricing
+        -->
+        <div class="product" style="background-color: white; height: 200px; width: 60%; float: right; border-radius: 2px; opacity: 0.7;">
+            <div class="product-info">
+                <div class="product-image;">
+                </div><p>Product</p>
+            </div>
+            <div class="product-price" style="text-align: center;">
+                Pricing
+                <table style="margin-right: auto; margin-left: auto; overflow-x: auto; width: 70%;">
+                    <tr style="border-top: 1px solid brown;">
+                        <th><button style="border: none; background: none;"> 1</button></th>
+                        <th><input type="checkbox" class="custom-control-input" id="check1" style="padding-right: 5px" /> Shop 2</th>
+                        <th><button>Shop 3</button></th>
+                    </tr>
+                    <tr>
+                        <td>Price A</td>
+                        <td>Price B</td>
+                        <td>Price C</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Search Section -->
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+        <div class="row">
+            <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                <div class="about-img" style="background: rgba(0, 0, 0, 0.2)">
+                    <img src="~/assets/img/about2.jpg" alt="">
+                </div>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" style="color: white; font-family: Playfair Display, serif">
+                <h3>This is our About section!</h3>
+                <p class="fst-italic">
+                    There is a lot that goes into an about section. Quite a lot actually, so much so that sometimes these things get pretty long.
+                    But in this about section we really want you to get to know us, even if that means things will get long... very long.
+                    Here's a few things to know:
+                </p>
+                <ul>
+                    <li><i class="bi bi-check-circle"></i> This was our BBD group project.</li>
+                    <li><i class="bi bi-check-circle"></i> This was a team project and was done as a team.</li>
+                    <li><i class="bi bi-check-circle"></i> We enjoyed doing this project een when things got difficult.</li>
+                </ul>
+                <p>
+                    Now that you have read our about page, you should really take the time to look at everything else our web application
+                    has to offer! Try out a few buttons, maybe do a search, or mess around with a shopping list. Thank you for reading this
+                    whole about section. Goodluck!
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->
