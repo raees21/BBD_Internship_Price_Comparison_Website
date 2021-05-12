@@ -5,6 +5,19 @@ body {
   color: #fff;
 }
 
+/*
+.row:hover + .product {
+    display: block;
+}
+
+.product:hover + .product {
+    display: block;
+}
+
+.product {
+    display: none;
+*/
+
 a {
   color: #cda45e;
   text-decoration: none;

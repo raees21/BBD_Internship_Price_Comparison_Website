@@ -1,4 +1,5 @@
-﻿@{
+﻿
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -19,28 +20,50 @@
         </div>
     </div>
 </section><!-- End Intro -->
+
 <!-- ======= Shopping List Section ======= -->
 <section id="shopping-list" class="book-a-table list-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
+            @if (ViewData["search_res"] != null)
+            {
+                <h2 style="color: #cda45e">@ViewData["search_res"]</h2>
+                Console.WriteLine("Here");
+
+            }
+            else
+            {
+                Console.WriteLine("Fuck");
+            }
             <h2 style="color: #cda45e">Grocery</h2>
             <p>Shopping List</p>
         </div>
         <div class="table-list">
-            <table style="width:100%; background-color: white; opacity: 0.6;">
+            <table style="width:100%; background-color: white; opacity: 0.6; overflow: auto;">
+                <!--if (var.Count() <= 0)
+                {
+                    <tr class="table-head">
+                        <th>Description</th>
+                        <th>Price</th>
+                    </tr>
+                }
+                else
+                    -->
                 <tr class="table-head">
-                    <th>Description</th>
-                    <th>Price</th>
+                    <th style="text-align: center; font-weight: 400; color: black; font-size: 18px;">Search to add items to shopping.</th>
                 </tr>
-
-                <tr>
-                    <td style="padding-left: 5px">
-                        <input type="checkbox" class="custom-control-input" id="check1" style="padding-right: 5px" />
-                        Cupcakes
-                    </td>
-                    <td>R50.00     Woolies</td>
-                </tr>
+                <!--foreach (var i in ) {
+                    String price = $"R{i}";
+                    String name = $"{i}";
+                    <tr>
+                        <td style="padding-left: 5px">
+                            <input type="checkbox" class="custom-control-input" id="i" style="padding-right: 5px" />
+                            name
+                        </td>
+                        <td>price</td>
+                    </tr>
+                }-->
             </table>
         </div>
 
@@ -48,6 +71,7 @@
 
     </div>
 </section><!-- End Shopping List Section -->
+
 <!-- ======= Search Section ======= -->
 <section id="search" class="menu section-bg">
     <div class="container" data-aos="fade-up">
@@ -57,35 +81,44 @@
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <input type="search" name="name" class="form-control" id="name" placeholder="Search..." data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <form asp-controller="Home" asp-action="" method="post">
+                <!-- Input and Submit elements -->
+                <input type="search" name="search" class="form-control" id="search" placeholder="Search..." data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+                <button type"submit">Submit</button>
+            </form>
+           
         </div>
         <!--
         Create a dropdown with product details and pricing
         -->
-        <div class="product" style="background-color: white; height: 200px; width: 60%; float: right; border-radius: 2px; opacity: 0.7;">
-            <div class="product-info">
-                <div class="product-image;">
-                </div><p>Product</p>
-            </div>
-            <div class="product-price" style="text-align: center;">
-                Pricing
-                <table style="margin-right: auto; margin-left: auto; overflow-x: auto; width: 70%;">
-                    <tr style="border-top: 1px solid brown;">
-                        <th><button style="border: none; background: none;"> 1</button></th>
-                        <th><input type="checkbox" class="custom-control-input" id="check1" style="padding-right: 5px" /> Shop 2</th>
-                        <th><button>Shop 3</button></th>
-                    </tr>
-                    <tr>
-                        <td>Price A</td>
-                        <td>Price B</td>
-                        <td>Price C</td>
-                    </tr>
-                </table>
+        <br/>
+        <div class="product" style=" background-color: white; border: 1px solid darkgray; height: 170px; width: 60%; border-radius: 3px; opacity: 0.7; margin: auto;">
+            <div class="product-price" style="text-align: center; margin: auto;">
+                <p style="margin: 5px; font-weight: 600;">PRICING</p>
+                <div style="display: flex; justify-content: space-between; border: 1px solid darkgray">
+                    <div style="width: 33.3%;  height: 100px; background-color: #e8bc72;">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">WOOLWORTHS</p>
+                        <p style="margin: 5px;">Price</p>
+                        <button>Add</button>
+                    </div>
+                    <div style="width: 33.4%;  height: 100px; background-color: wheat;">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">CHECKERS</p>
+                        <p style="margin: 5px;">Price</p>
+                        <button>Add</button>
+                    </div>
+                    <div style="width: 33.3%;  height: 100px; background-color: #e0d1b6;">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">SHOPRITE</p>
+                        <p style="margin: 5px;">Price</p>
+                        <button>Add</button>
+                    </div>
+                </div>
             </div>
         </div>
 
     </div>
 </section><!-- End Search Section -->
+
+
 <!-- ======= About Section ======= -->
 <section id="about" class="about">
     <div class="container" data-aos="fade-up">

@@ -59,6 +59,12 @@ namespace Groce.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult search(string search)
+        {
+            ViewData["search_res"] = "We search";
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
