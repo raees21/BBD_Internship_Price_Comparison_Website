@@ -8,6 +8,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Groce.Controllers;
 using System.Net;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
 
 namespace Groce.Controllers
 {
@@ -35,8 +37,12 @@ namespace Groce.Controllers
             {
                 WebClient wc = new WebClient();
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                var somestring = wc.DownloadString("https://localhost:5001/api/groceries");
-                ViewBag.Groceries = somestring;
+                var somestring = wc.DownloadString("https://localhost:5001/api/groceries/list");
+                var vs = JsonConvert.DeserializeObject<IEnumerable<string>>(somestring);
+                ViewBag.Groceries = new SelectList(vs);
+                var pricer = wc.DownloadString("https://localhost:5001/api/groceries/pricesearch/"+ViewBag.Groceries);
+                //  var pry = JsonConvert.DeserializeObject<IEnumerable<GroceryTyper>>(somestring);
+                ViewBag.Prices = "HELLo";
                 return View();
             }
             catch (WebException we)
@@ -45,6 +51,11 @@ namespace Groce.Controllers
             }
 
             return View();
+        }
+        public void Button_click()
+        {
+            ViewBag.Prices = "HELLo";
+            Console.WriteLine("CLICK");
         }
 
         public IActionResult Privacy()

@@ -5,6 +5,11 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>@ViewBag.Groceries</p>
-     <p>@ViewData["Price"] </p>
+    <p> Genre: @Html.DropDownList("Groceries", "All") </p>
+    <button type="button" onclick="location.href = '@Url.Action("GetGroceriesList","Groceries")'">GROCERIES LIST</button>
+    <p> @ViewBag.Prices</p>
+    <button type="button" onclick="location.href = '@Url.Action("GetGroceriesByName","Groceries", new { name="eggs"})'">PRICE FIND</button>
+
 </div>
+
+<!-- + $('#Id_Of_Textbox').val() -->
