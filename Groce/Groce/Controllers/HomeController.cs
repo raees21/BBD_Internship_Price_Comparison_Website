@@ -36,7 +36,9 @@ namespace Groce.Controllers
             //ViewBag.Groceries = _groceryContext.Pricing.Find(1).GroceryPrice.ToString();
             Console.WriteLine($"Juast... {groceries.Count()}");
             var search = functions.Search(_groceryContext);
-            ViewBag.Groceries = search[2];
+            ViewBag.Groceries =  new SelectList(search);
+
+
             //var search = functions.Search(_groceryContext);
             //Viewbag.Groceries = new SelectList(search);
 

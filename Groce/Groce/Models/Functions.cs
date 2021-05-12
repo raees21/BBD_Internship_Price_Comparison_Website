@@ -47,7 +47,7 @@ namespace Models.Functions
             List<string> searchable = new List<string>();
             for (int i = 1; i < 14; i++)
             {
-                searchable.Add(_groceryContext.Groceries.Find(i).ToString());
+                searchable.Add(_groceryContext.Groceries.Find(i).GroceryName.ToString());
 
 
             }
