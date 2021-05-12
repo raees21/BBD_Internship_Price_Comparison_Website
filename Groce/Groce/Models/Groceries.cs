@@ -13,6 +13,5 @@ namespace Groce.Models
         public string GroceryName { get; set; }
         public string GroceryType { get; set; }
         public string GroceryDescription { get; set; }
-        public string GroceryType { get; set; }
     }
 }
