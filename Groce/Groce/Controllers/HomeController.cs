@@ -89,8 +89,25 @@ namespace Groce.Controllers
             //ViewBag.Groceries = _groceryContext.Pricing.Find(1).GroceryPrice.ToString();
             var search = functions.Search(_groceryContext);
             ViewBag.Groceries = groceries;
+            if (min == price1)
+            {
+                ViewData["C1"] = "tomato";
+                ViewData["C2"] = "";
+                ViewData["C3"] = "";
+            }
+            else if (min == price2)
+            {
+                ViewData["C1"] = "";
+                ViewData["C2"] = "tomato";
+                ViewData["C3"] = "";
+            }
+            else
+            {
+                ViewData["C1"] = "";
+                ViewData["C2"] = "";
+                ViewData["C3"] = "tomato";
+            }
             
-
 
 
             ViewData["Prices"] = "";
