@@ -4,6 +4,7 @@
 }
 @model Groce.Models.Groceries
 
+
 <!-- ======= Intro Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
@@ -21,95 +22,102 @@
     </div>
 </section><!-- End Intro -->
 
+
 <!-- ======= Shopping List Section ======= -->
 <section id="shopping-list" class="book-a-table list-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-                
+
             <h2 style="color: #cda45e">Grocery</h2>
             <p>Shopping List</p>
         </div>
+
         <div class="table-list">
             <table style="width:100%; background-color: white; opacity: 0.6; overflow: auto;">
-                <!--if (@*ViewData["Shopping"]*@.Count() <= 0)
-    {
-        <tr class="table-head">
-            <th> Description</th>
-            <th>Price</th>
-        </tr>
-    }
-    else
-        -->
-                <tr class="table-head">
-                    <th style="text-align: center; font-weight: 400; color: black; font-size: 18px;">Search to add items to shopping.</th>
-                </tr>
-                <!--foreach (var i in @*ViewData["Shopping"]*@) {
-        <tr>
-            <td style="padding-left: 5px">
-                <input type="checkbox" class="custom-control-input" id="i" style="padding-right: 5px" />
-                    @*i[0] >>> Name*@
-            </td>
-            <td>@*i[1] >>> Price*@ &nbsp; @*i[2]*@</td>
-        </tr>
-    }-->
+
+                @if (null != ViewBag.ShoppingListItems && ViewBag.ShoppingListItems.Count > 0)
+                {
+                    <tr class="table-head">
+                        <th> Description</th>
+                        <th>Price</th>
+                    </tr>
+
+                    
+
+                    System.Globalization.TextInfo myTI = new System.Globalization.CultureInfo("en-US", false).TextInfo;
+                    foreach (List<Object> obj in ViewBag.ShoppingListItems)
+                    {
+                        String price = "R" + obj[1].ToString(); 
+                        <tr>
+                            <td style="padding-left: 5px">
+                                <input type="checkbox" class="custom-control-input" id="i" style="padding-right: 5px" />
+                                @myTI.ToTitleCase(obj[0].ToString()) &nbsp; @obj[2].ToString()
+                            </td>
+                            <td>@price</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="table-head">
+                        <th style="text-align: center; font-weight: 400; color: black; font-size: 18px;">Search to add items to shopping.</th>
+                    </tr>
+                }
+
             </table>
-            </div>
-
-            <!-- shopping list -->
-
         </div>
-    </section><!-- End Shopping List Section -->
+    </div>
+</section><!-- End Shopping List Section -->
 
-    <!-- ======= Search Section ======= -->
-    <section id="search" class="menu section-bg">
-        <div class="container" data-aos="fade-up">
 
-            <div class="section-title">
-                <h2>Search</h2>
-            </div>
+<!-- ======= Search Section ======= -->
+<section id="search" class="menu section-bg">
+    <div class="container" data-aos="fade-up">
+        <div class="section-title">
+            <h2>Search</h2>
+        </div>
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+            <form asp-controller="Home" asp-action="" method="post">
+                @Html.TextBoxFor(x => x.GroceryName, new { placeholder = ViewData["holder"], value = '0' })
+                <button onclick="location.href = '#section-box';" type="submit" id="search-box">Submit</button>
+            </form>
+        </div>
+        <br />
+        <div class="product" style=" background-color: white; border: 1px solid darkgray; height: 170px; width: 60%; border-radius: 3px; opacity: 0.7; margin: auto;">
+            <div class="product-price" style="text-align: center; margin: auto;">
+                <p style="margin: 5px; font-weight: 600;">PRICING</p>
+                <div style="display: flex; justify-content: space-between; border: 1px solid darkgray">
+                    <div style="width: 33.3%;  height: 100px; background-color: #e8bc72;">
 
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <form asp-controller="Home" asp-action="" method="post">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">WOOLWORTHS</p>
+                        Price
+                        <p style="margin: 5px;">R @ViewData["Price1"]</p>
+                        <input type="submit" id="shop1" value="Add" />
+                    </div>
+                    <div style="width: 33.4%;  height: 100px; background-color: wheat;">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">CHECKERS</p>
+                        Price
+                        <p style="margin: 5px;">R @ViewData["Price2"]</p>
 
-                    @*<input type="search" name="search" class="form-control" id="search" placeholder="Search..." data-rule="minlen:4" data-msg="Please enter at least 4 chars">*@
-                    @Html.TextBoxFor(x => x.GroceryName, new { placeholder = "Search item..." })
-                    <button onclick="location.href = 'index/#section-box';" type="submit" id="search-box" >Submit</button>
-                </form>
-            </div>
-            <!--
-            Create a dropdown with product details and pricing
-            -->
-                <br />
-                <div class="product" style=" background-color: white; border: 1px solid darkgray; height: 170px; width: 60%; border-radius: 3px; opacity: 0.7; margin: auto;">
-                    <div class="product-price" style="text-align: center; margin: auto;">
-                        <p style="margin: 5px; font-weight: 600;">PRICING</p>
-                        <div style="display: flex; justify-content: space-between; border: 1px solid darkgray">
-                            <div style="width: 33.3%;  height: 100px; background-color: #e8bc72;">
-                                
-                                <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">WOOLWORTHS</p>
-                                @Html.LabelFor(x => x.GroceryID, "Price")
-                            <p style="margin: 5px;background-color:@ViewData["C1"];">R @ViewData["Price1"]</p>
-                                <button type="submit">Add</button>
-                            </div>
-                            <div style="width: 33.4%;  height: 100px; background-color: wheat;">
-                                <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">CHECKERS</p>
-                                @Html.LabelFor(x => x.GroceryID, "Price")
-                                <p style="margin: 5px;background-color:@ViewData["C2"];">R @ViewData["Price2"]</p>
-                                <button type="submit">Add</button>
-                            </div>
-                            <div style="width: 33.3%;  height: 100px; background-color: #e0d1b6;">
-                                <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">SHOPRITE</p>
-                                @Html.LabelFor(x => x.GroceryID, "Price")
-                                <p style="margin: 5px;background-color:@ViewData["C3"];">R @ViewData["Price3"]</p>
-                                <button type="submit">Add</button>
-                            </div>
-                            
-                        </div>
+
+
+                        @*<form>
+        <input type="button" value="Button 1" id="btn1" onclick="RazorFunction();" />*@
+                        <button type="submit" id="btn" onclick="RazorFunction()">Add</button>
+                        @*</form>*@
+
+                    </div>
+                    <div style="width: 33.3%;  height: 100px; background-color: #e0d1b6;">
+                        <p style="margin: 5px; font-weight: 600; font-variant: small-caps;">SHOPRITE</p>
+                        Price
+                        <p style="margin: 5px;">R @ViewData["Price3"]</p>
+                        <button type="submit">Add</button>
                     </div>
                 </div>
-
-</div>
+            </div>
+        </div>
+    </div>
 </section><!-- End Search Section -->
 
 

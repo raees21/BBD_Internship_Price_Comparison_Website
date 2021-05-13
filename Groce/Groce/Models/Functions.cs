@@ -7,15 +7,19 @@ namespace Models.Functions
 {
     public class Functions
     {
+        public List<object> shoppingList = new List<object>();
+        /*private List<Object> shoppingList = new List<object>();
 
-
+        public List<Object> Items(Object obj)
+        {
+            shoppingList.Add(obj);
+            return shoppingList;
+        }*/
 
         public List<GroceryType> GroceriesList(GroceryContext _groceryContext)
         {
+            
             var groceries = new List<GroceryType>();
-            //var pricing = new List<Pricing>();
-
-
 
             for (int i = 1; i < 14; i++)
             {
@@ -30,9 +34,6 @@ namespace Models.Functions
                     });
                 }
 
-
-
-
                 groceries.Add(new GroceryType()
                 {
                     GroceryName = _groceryContext.Groceries.Find(i).GroceryName.ToString(),
@@ -45,47 +46,27 @@ namespace Models.Functions
             return groceries;
         }
 
-
-
         public List<string> Search(GroceryContext _groceryContext)
         {
             List<string> searchable = new List<string>();
             for (int i = 1; i < 14; i++)
             {
                 searchable.Add(_groceryContext.Groceries.Find(i).GroceryName.ToString());
-
-
-
-
             }
 
-
-
             return searchable;
+        } 
 
-
-
-
-        }
 
         public decimal Minimum(decimal p1, decimal p2, decimal p3)
-        {
-            
-            
+        { 
             return new List<decimal> { p1, p2, p3}.Min();
         }
 
         public decimal Maximum(decimal p1, decimal p2, decimal p3)
         {
-
-
             return new List<decimal> { p1, p2, p3 }.Max();
         }
-
-
     }
-
-
-
 
 }
