@@ -11,6 +11,8 @@ namespace Groce.Models
         public string GroceryName { get; set; }
         public string GroceryDescription { get; set; }
 
-        public Pricing pricing;
+
+
+        public List<Pricing> pricing;
     }
 }
