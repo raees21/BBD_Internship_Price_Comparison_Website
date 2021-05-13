@@ -68,24 +68,25 @@ namespace Groce.Controllers
             var groceries = functions.GroceriesList(_groceryContext);
             var prices = groceries.Where(x => x.GroceryName.Trim().ToLower() == name.ToLower()).ToList();
             var index = prices.FindIndex(x => x.GroceryName.Trim().ToLower() == name.ToLower());
-            
+
+            decimal price1 = prices[index].pricing[0].GroceryPrice;
+            decimal price2 = prices[index].pricing[1].GroceryPrice;
+            decimal price3 = prices[index].pricing[2].GroceryPrice;
 
             Console.WriteLine(index.ToString());
-            ViewData["Price1"] = prices[index].pricing[0].GroceryPrice;
-            ViewData["Price2"] = prices[index].pricing[1].GroceryPrice;
-            ViewData["Price3"] = prices[index].pricing[2].GroceryPrice;
+            ViewData["Price1"] = price1;
+            ViewData["Price2"] = price2;
+            ViewData["Price3"] = price3;
 
             ViewData["Name"] = grocery.GroceryName;
 
-
+            var min = functions.Minimum(price1, price2 , price3);
+            var max = functions.Maximum(price1, price2, price3);
 
             //var list = _groceryContext.Groceries.Find(1).GroceryName;
-            Console.WriteLine("Pricong");
-            Console.WriteLine(prices[0].pricing.Count());
             
             
             //ViewBag.Groceries = _groceryContext.Pricing.Find(1).GroceryPrice.ToString();
-            Console.WriteLine($"Juast... {groceries.Count()}");
             var search = functions.Search(_groceryContext);
             ViewBag.Groceries = groceries;
             

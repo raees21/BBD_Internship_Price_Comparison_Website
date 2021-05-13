@@ -29,8 +29,6 @@ namespace Models.Functions
                         GroceryPrice = _groceryContext.Pricing.Find(j).GroceryPrice
                     });
                 }
-                //Console.WriteLine($"{pricing[0].ToString()}");
-                //Console.WriteLine($"{pricing[0].ToString()}");
 
 
 
@@ -42,7 +40,6 @@ namespace Models.Functions
                     GroceryDescription = _groceryContext.Groceries.Find(i).GroceryDescription.ToString(),
                     pricing = pricing
                 });
-                Console.WriteLine($"{groceries.Count()}");
 
             }
             return groceries;
@@ -71,17 +68,19 @@ namespace Models.Functions
 
         }
 
-        public GroceryType Minimum(GroceryContext _groceryContext)
+        public decimal Minimum(decimal p1, decimal p2, decimal p3)
         {
-            GroceryType groceItem = new GroceryType();
-            for (int i = 1; i < 14; i++)
-            {
-                _groceryContext.Groceries.Find(i).GroceryID.ToString();
-            }
-            return groceItem;
+            
+            
+            return new List<decimal> { p1, p2, p3}.Min();
         }
 
+        public decimal Maximum(decimal p1, decimal p2, decimal p3)
+        {
 
+
+            return new List<decimal> { p1, p2, p3 }.Max();
+        }
 
 
     }
