@@ -12,16 +12,14 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Groce.Controllers
 {
+
     public class HomeController : Controller
     {
 
         private readonly GroceryContext _groceryContext;
         private readonly ILogger<HomeController> _logger;
+        private Functions functions = new Functions();
 
-        //public HomeController(ILogger<HomeController> logger)
-        //{
-        //    _logger = logger;
-        //}
 
         public HomeController(ILogger<HomeController> logger, GroceryContext groceryContext)
         {
@@ -29,99 +27,57 @@ namespace Groce.Controllers
             _logger = logger;
         }
 
+
         public IActionResult Index()
         {
-            ViewBag.Groceries = _groceryContext.Groceries.Find(1).GroceryName;
-
-            //List<string> Groceries = new List<string>();
-
-            //var groceries = new List<Groceries>();
-            //for(int i = 1; i < 13; i++)
-            //{
-            //    groceries.Add(new Groceries() { GroceryName = _groceryContext.Groceries.Find(i).GroceryName.ToString() });
-            //}
-
-            //for (int i = 1; i < 13; i++)
-            //{
-            //Console.WriteLine(_groceryContext.Groceries.Find(i).GroceryName.ToString());
-            //}
-
-            //foreach (var j in groceries)
-            //{
-            //    Console.WriteLine(j);
-            //}
-
-
-
-
-
             return View();
         }
+
 
         [HttpPost]
         public IActionResult Index(Groceries grocery)
         {
 
+            if (string.IsNullOrEmpty(grocery.GroceryName))
+            {
+                return View();
+            }
+
             Functions functions = new Functions();
+
             String name = grocery.GroceryName;
 
+
             var groceries = functions.GroceriesList(_groceryContext);
-            var prices = groceries.Where(x => x.GroceryName.Trim().ToLower() == name.ToLower()).ToList();
-            var index = prices.FindIndex(x => x.GroceryName.Trim().ToLower() == name.ToLower());
+            if (groceries.All(x => x.GroceryName.Trim().ToLower() != name.ToLower()))
+            {
+                return View();
+            }
 
-            decimal price1 = prices[index].pricing[0].GroceryPrice;
-            decimal price2 = prices[index].pricing[1].GroceryPrice;
-            decimal price3 = prices[index].pricing[2].GroceryPrice;
+            var products = groceries.Where(x => x.GroceryName.Trim().ToLower() == name.ToLower()).ToList();
+            var index = products.FindIndex(x => x.GroceryName.Trim().ToLower() == name.ToLower());
 
-            Console.WriteLine(index.ToString());
-            ViewData["Price1"] = price1;
-            ViewData["Price2"] = price2;
-            ViewData["Price3"] = price3;
+            decimal price1 = products[index].pricing[0].GroceryPrice;
+            decimal price2 = products[index].pricing[1].GroceryPrice;
+            decimal price3 = products[index].pricing[2].GroceryPrice;
 
             ViewData["Name"] = grocery.GroceryName;
 
-            var min = functions.Minimum(price1, price2 , price3);
-            var max = functions.Maximum(price1, price2, price3);
+            ViewData["Price1"] = price1;
+            ViewData["Price2"] = price2;
+            ViewData["Price3"] = price3;
+            ViewData["Description"] = products[index].GroceryDescription;
+            ViewData["ID"] = products[index].GroceryID;
 
-            //var list = _groceryContext.Groceries.Find(1).GroceryName;
-            
-            
-            //ViewBag.Groceries = _groceryContext.Pricing.Find(1).GroceryPrice.ToString();
-            var search = functions.Search(_groceryContext);
-            ViewBag.Groceries = groceries;
-            if (min == price1)
-            {
-                ViewData["C1"] = "tomato";
-                ViewData["C2"] = "";
-                ViewData["C3"] = "";
-            }
-            else if (min == price2)
-            {
-                ViewData["C1"] = "";
-                ViewData["C2"] = "tomato";
-                ViewData["C3"] = "";
-            }
-            else
-            {
-                ViewData["C1"] = "";
-                ViewData["C2"] = "";
-                ViewData["C3"] = "tomato";
-            }
-            
+            ViewData["Min"] = functions.Maximum(price1, price2, price3);
+            ViewData["Max"] = functions.Minimum(price1, price2, price3);
 
+            Functions.AddItems(new List<Object>()
+                                        { name, functions.Minimum(price1, price2, price3),
+                                          products[index].GroceryDescription});
 
-            ViewData["Prices"] = "";
-             ViewData["ID"] = grocery.GroceryID;
-             ViewData["Type"] = grocery.GroceryType;
-             ViewData["Description"] = grocery.GroceryDescription;
-            
-            /* create list Shopping and pass to ViewData
-             * 
-             * var shoppingList = from....
-             * 
-             * ViewData["Shopping"] = shoppingList;
-             */
-            
+            ViewBag.Prices = new List<decimal>() { price1, price2, price3 };
+            ViewBag.ShoppingListItems = Functions.ShoppingList;
 
             return View();
         }
@@ -130,6 +86,7 @@ namespace Groce.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult search(string search)
         {
