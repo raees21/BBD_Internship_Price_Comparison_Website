@@ -44,6 +44,7 @@ namespace Groce.Controllers
             }
 
             Functions functions = new Functions();
+            String name = grocery.GroceryName;
 
             String name = grocery.GroceryName;
 
