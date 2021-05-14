@@ -46,9 +46,6 @@ namespace Groce.Controllers
             Functions functions = new Functions();
             String name = grocery.GroceryName;
 
-            String name = grocery.GroceryName;
-
-
             var groceries = functions.GroceriesList(_groceryContext);
             if (groceries.All(x => x.GroceryName.Trim().ToLower() != name.ToLower()))
             {
