@@ -23,7 +23,28 @@ Our objective for this project was to make an easy to use web application.This a
 4. Login using Google or other available services making use of the login system for the Grocery Website
 5. START SHOPPING!!!!
 
-### Needed packages for Auth0:
+### Architecture
 
-Install-Package Microsoft.AspNetCore.Authentication.Cookies
-Install-Package Microsoft.AspNetCore.Authentication.OpenIdConnect
+This application makes use of the MVC Paradigm (Model View Controller)
+
+UI ---> Controllers ---> Models ----> Data Repository ---> SQL Database
+
+1. Controllers
+ - Control the flow of data between the UI and the Backend Logic of the Application
+2. Models
+ - Models are used to translate the data from the database into identifiable objects so it can be used to proccess logic in the Backend of the Application
+3. Views/UI
+ - The actual HTML - CSS - Javascript code used to render the User Interface of the project which gets rendered from the controllers
+4. Assets
+ - Common icons, pictures and other images used to help render the interface
+5. Launch Settings
+ - Sets the initial launch configuration for the Application
+6. Startup Class
+ - Startsup services so the application can run - such as Auth0 for Google authentication and the Database
+
+### Testing
+
+These are the tests I executed to test the Application
+
+1. 
+
