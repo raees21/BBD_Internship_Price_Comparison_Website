@@ -46,13 +46,13 @@ UI ---> Controllers ---> Models ----> Data Repository ---> SQL Database
 
 These are the tests I executed to test the Application
 
-a) Preliminary Checks, See if I have a Web Browser Installed
-b) Start Webserver and SQL Server
-c) Login Using Google
-d) Type a Grocery Name in text box and press enter
-e) Add required Items to cart and see if cart populates
-f) Logout of user
-g) Log back in
+a) Preliminary Checks, See if I have a Web Browser Installed <br/>
+b) Start Webserver and SQL Server <br/>
+c) Login Using Google <br/>
+d) Type a Grocery Name in text box and press enter <br/>
+e) Add required Items to cart and see if cart populates <br/>
+f) Logout of user <br/>
+g) Log back in <br/>
 
 Expected Outcomes
 
