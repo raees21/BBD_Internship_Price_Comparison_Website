@@ -40,11 +40,33 @@ UI ---> Controllers ---> Models ----> Data Repository ---> SQL Database
 5. Launch Settings
  - Sets the initial launch configuration for the Application
 6. Startup Class
- - Startsup services so the application can run - such as Auth0 for Google authentication and the Database
+ - Startsup initial services so the application can run - such as Auth0 for Google authentication and the Database
 
 ### Testing
 
 These are the tests I executed to test the Application
 
-1. 
+a) Preliminary Checks, See if I have a Web Browser Installed
+b) Start Webserver and SQL Server
+c) Login Using Google
+d) Type a Grocery Name in text box and press enter
+e) Add required Items to cart and see if cart populates
+f) Logout of user
+g) Log back in
+
+Expected Outcomes
+
+a) All Preliminary checks done and Web Browser was installed
+b) Webserver Starts and connects to Database
+c) Login Successfull and user is now logged into website
+d) List of stores with the selected grocery appears and Highlights the cheapest option
+e) Cart Populates correctly
+f) User Logged out successfully
+g) User Logged in and cart is kept in memory so it shows the same as before
+
+
+
+
+
+
 
