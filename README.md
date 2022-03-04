@@ -56,13 +56,13 @@ g) Log back in
 
 Expected Outcomes
 
-a) All Preliminary checks done and Web Browser was installed
-b) Webserver Starts and connects to Database
-c) Login Successfull and user is now logged into website
-d) List of stores with the selected grocery appears and Highlights the cheapest option
-e) Cart Populates correctly
-f) User Logged out successfully
-g) User Logged in and cart is kept in memory so it shows the same as before
+a) All Preliminary checks done and Web Browser was installed <br/>
+b) Webserver Starts and connects to Database <br/>
+c) Login Successfull and user is now logged into website <br/>
+d) List of stores with the selected grocery appears and Highlights the cheapest option <br/>
+e) Cart Populates correctly <br/>
+f) User Logged out successfully <br/>
+g) User Logged in and cart is kept in memory so it shows the same as before <br/>
 
 
 
