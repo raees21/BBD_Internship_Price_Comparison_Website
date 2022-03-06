@@ -19,9 +19,11 @@ Our objective for this project was to make an easy to use web application.This a
 
 1. Install Microsoft SQL Server and run a SQL Server
 2. Install SSMS (SQL Server Management Studio) and connect to the Microsoft Server Instance
-3. Run the SQLDatabaseV1.sql script within the Source Code to setup the entire Database with tables and mock values
-4. Login using Google or other available services making use of the login system for the Grocery Website
-5. START SHOPPING!!!!
+3. Clone Repsoitory
+4. Run the SQLDatabaseV1.sql script within the Source Code to setup the entire Database with tables and mock values
+5. Install Visual Studio and Run the application
+6. Login using Google or other available services making use of the login system for the Grocery Website
+7. START SHOPPING!!!!
 
 ### Architecture
 
